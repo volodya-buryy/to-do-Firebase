@@ -1,9 +1,8 @@
 'use strict';
 import  _ from 'lodash/core';
 import angularLogo from '_images/angular.png';
-import * as firebase from 'firebase';
 
-function MainController($log, $firebaseArray, toDoFirebaseStoreService) {
+function MainController($log, toDoFirebaseStoreService) {
 	'ngInject';
 
 	this.toDoList = toDoFirebaseStoreService.getList();
