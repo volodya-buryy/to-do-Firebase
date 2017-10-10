@@ -3,33 +3,27 @@ import  _ from 'lodash/core';
 import angularLogo from '_images/angular.png';
 import * as firebase from 'firebase';
 
-function MainController($log, $firebaseArray) {
+function MainController($log, $firebaseArray, toDoFirebaseStoreService) {
 	'ngInject';
 
-	let rootRef = firebase.database().ref().child("angular");
-	let ref = rootRef.child('obj');
-
-	this.toDoList = $firebaseArray(ref);
+	this.toDoList = toDoFirebaseStoreService.getList();
+	console.log(this.toDoList)
 
 	this.pushToList = item => {
-		this.toDoList.$add({
-			todo: item
-		})
+		toDoFirebaseStoreService.setItemToList(item);
 		this.toDo = null;
 	}
 
 	this.remove = item => {
-		this.toDoList.$remove(item);
+		toDoFirebaseStoreService.remove(item);
 	}
 
 	this.completed = item => {
-		item.done = true;
-		this.toDoList.$save(item);
+		toDoFirebaseStoreService.completed(item);
 	}
 
 	this.removeComplete = item => {
-		item.done = false;
-		this.toDoList.$save(item);
+		toDoFirebaseStoreService.removeComplete(item);
 	}
 
 }
