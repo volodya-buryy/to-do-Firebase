@@ -1,15 +1,30 @@
 <div class="jumbotron" id="messages">
     <div class="container">
-        <input type="text"
-            placeholder="What need to be done?"
-            ng-model="main.toDo"
-            ng-keyup="$event.keyCode == 13 ? main.pushToList(main.toDo) : null" >
+        <form
+            class="col-md-12 form-inline"
+            style="text-align: center;"
+            ng-submit="main.pushToList(main.toDo)">
 
-        <button ng-click="main.pushToList(main.toDo)">Add</button>
+            <input type="text"
+                placeholder="What need to be done?"
+                ng-model="main.toDo" class="form-control">
 
-        <div ng-repeat="item in main.toDoList track by $index">
-            <span>{{item}}</span>
-            <i class="material-icons">delete</i>
+            <input type="submit" id="submit" value="Add" class="btn btn-default"/>
+        </form>
+
+
+        <div
+            class="col-md-12"
+            ng-repeat="item in main.toDoList track by $index"
+            style="display: flex;align-items: center;font-size: 1.3em;border-bottom: 1px solid black;">
+
+            <span ng-class="{'line-through-text': item.done}">{{item.todo}}</span>
+            <div style="margin-left: auto;">
+                <i ng-hide="item.done" class="material-icons" ng-click="main.completed(item)">done</i>
+                <i ng-show="item.done" class="material-icons" ng-click="main.removeComplete(item)">close</i>
+                <i class="material-icons" ng-click="main.remove(item)">delete</i>
+            </div>
+
         </div>
     </div>
 </div>
