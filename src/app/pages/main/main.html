@@ -1,8 +1,6 @@
 <div class="jumbotron" id="messages">
     <div class="container">
-        <form
-            class="col-md-12 form-inline"
-            style="text-align: center;"
+        <form class="col-md-12 form-inline text-center"
             ng-submit="main.pushToList(main.toDo)">
 
             <input type="text"
@@ -13,13 +11,12 @@
         </form>
 
 
-        <div
-            class="col-md-12"
-            ng-repeat="item in main.toDoList track by $index"
-            style="display: flex;align-items: center;font-size: 1.3em;border-bottom: 1px solid black;">
+        <div class="col-md-12 to-do-block"
+            ng-repeat="item in main.toDoList track by $index">
 
             <span ng-class="{'line-through-text': item.done}">{{item.todo}}</span>
-            <div style="margin-left: auto;">
+
+            <div class="buttons-block">
                 <i ng-hide="item.done" class="material-icons" ng-click="main.completed(item)">done</i>
                 <i ng-show="item.done" class="material-icons" ng-click="main.removeComplete(item)">close</i>
                 <i class="material-icons" ng-click="main.remove(item)">delete</i>

@@ -45,5 +45,17 @@ body {
   font-feature-settings: 'liga';
 }
 .line-through-text{
-text-decoration: line-through;
+  text-decoration: line-through;
+}
+.to-do-block{
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  border-bottom: 1px solid black;
+}
+.buttons-block{
+  margin-left: auto;
+}
+.text-center{
+  text-align: center;
 }

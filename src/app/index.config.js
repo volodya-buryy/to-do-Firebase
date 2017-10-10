@@ -12,7 +12,6 @@ function config($logProvider, $compileProvider) {
         $compileProvider.debugInfoEnabled(false);
     }
     //Initialize Firebase
-    console.log(firebase)
     firebase.initializeApp({
         apiKey: "AIzaSyAso8HzCfARYRMkqobiUoPY-VDIBO3ZANg",
         authDomain: "to-do-75c3c.firebaseapp.com",
@@ -22,7 +21,7 @@ function config($logProvider, $compileProvider) {
         messagingSenderId: "541054476385"
     });
 
-  
+
 }
 
 export default config;
