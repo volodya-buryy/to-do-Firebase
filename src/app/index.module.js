@@ -5,7 +5,6 @@ import run from './index.run';
 import uiRouter from '@uirouter/angularjs';
 
 import coreModule from './core/core.module';
-import indexComponents from './index.components';
 import indexRoutes from './index.routes';
 import mainModule from './pages/main/main.module';
 import * as firebase from 'firebase';
@@ -21,10 +20,7 @@ const App = angular.module("TO_DO", [
 
 		// core
 		coreModule.name,
-
-		// components
-		indexComponents.name,
-
+		
 		// routes
 		indexRoutes.name,
 
